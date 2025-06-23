@@ -16,3 +16,12 @@ export default function decorate(block) {
     });
   });
 }
+
+export default function decorate(block) {
+    const rating = block.querySelectorAll('p')[1];
+    let newString = '';
+    for(let i = 0; i < rating.innerHTML; i++) {
+        newString = newString + '*';
+    }
+    rating.innerHTML = newString;
+}
