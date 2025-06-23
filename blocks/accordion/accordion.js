@@ -19,5 +19,11 @@ export default function decorate(block) {
     details.className = 'accordion-item';
     details.append(summary, body);
     row.replaceWith(details);
+    const rating = block.querySelectorAll('p')[1];
+        let newString = '';
+        for(let i = 0; i < rating.innerHTML; i++) {
+            newString = newString + '*';
+        }
+        rating.innerHTML = newString;
   });
 }
