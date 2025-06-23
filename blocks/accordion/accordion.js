@@ -6,6 +6,13 @@
 
 export default function decorate(block) {
   [...block.children].forEach((row) => {
+  const rating = block.querySelectorAll('p')[1];
+          let newString = '';
+          for(let i = 0; i < rating.innerHTML; i++) {
+              newString = newString + '*';
+          }
+          rating.innerHTML = newString;
+    });
     // decorate accordion item label
     const label = row.children[0];
     const summary = document.createElement('summary');
@@ -19,11 +26,6 @@ export default function decorate(block) {
     details.className = 'accordion-item';
     details.append(summary, body);
     row.replaceWith(details);
-    const rating = block.querySelectorAll('p')[1];
-        let newString = '';
-        for(let i = 0; i < rating.innerHTML; i++) {
-            newString = newString + '*';
-        }
-        rating.innerHTML = newString;
+
   });
 }
